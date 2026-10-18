@@ -1,9 +1,12 @@
-
+import TarjetaEvento from './components/TarjetaEvento'
+import Cabecera from './components/Cabecera'
 
 function App() {
  return (
+
+  
   <main>
-    <h1>Entradas Demo</h1>
+    <Cabecera />
     <p>Proyecto en construcción</p>
     <p>Desarrolado por [Ahmednah Mohamed Saleh]</p>
 
@@ -12,6 +15,10 @@ function App() {
       <li>Comprar entradas</li>
       <li>Validar acceso</li>
     </ul>
+
+      <TarjetaEvento />
+      <TarjetaEvento />
+
   </main>
  )
 }
