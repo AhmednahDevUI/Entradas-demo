@@ -1,22 +1,20 @@
+import type { Evento } from '../data/eventos'
 import SelectorCantidad from './SelectorCantidad'
 
-type TarjetaEventoProps = {
-    titulo: string
-    fecha: string
-    precio: number
-    lugar: string
+type Props = {
+  evento: Evento
 }
 
-function TarjetaEvento({ titulo, fecha, precio, lugar }: TarjetaEventoProps) {
-    return (
-        <article>
-            <h2>{titulo}</h2>
-            <p>{fecha}</p>
-            <p>Precio: {precio} €</p>
-            <p>Cantidad: <SelectorCantidad precio={precio} /></p>
-            <p>Lugar: {lugar}</p>
-        </article>
-    )
+function TarjetaEvento({ evento }: Props) {
+  return (
+    <article>
+      <h2>{evento.titulo}</h2>
+      <p>{evento.fecha}</p>
+      <p>{evento.lugar}</p>
+      <p>Precio: {evento.precio} €</p>
+      <SelectorCantidad precio={evento.precio} />
+    </article>
+  )
 }
 
 export default TarjetaEvento

@@ -1,39 +1,32 @@
+import { useState } from 'react'
+import { eventos } from './data/eventos'
 import TarjetaEvento from './components/TarjetaEvento'
 import Cabecera from './components/Cabecera'
-import { eventos } from './data/eventos'
-
 
 function App() {
- return (
+  const [busqueda, setBusqueda] = useState('')
 
-  
-  <main>
-    <Cabecera />
-    <p>Proyecto en construcción</p>
-    <p>Desarrolado por [Ahmednah Mohamed Saleh]</p>
+  const visibles = eventos.filter((e) =>
+    e.titulo.toLowerCase().includes(busqueda.toLowerCase())
+  )
 
-    <ul>
-      <li>Ver eventos</li>
-      <li>Comprar entradas</li>
-      <li>Validar acceso</li>
-    </ul>
+  return (
+    <main>
+      <Cabecera />
 
-      <TarjetaEvento titulo="Concierto de verano" fecha="20 de junio" precio={15} lugar="Plaza Mayor" />
-      
+      <input
+        value={busqueda}
+        onChange={(e) => setBusqueda(e.target.value)}
+        placeholder="Buscar evento"
+      />
 
-      {eventos.map((evento) => (
-        <TarjetaEvento
-          key={evento.id}
-          titulo={evento.titulo}
-          fecha={evento.fecha}
-          precio={evento.precio}
-          lugar={evento.lugar}
-        />
-      ))  }
+      {visibles.length === 0 && <p>No hay eventos con ese nombre.</p>}
 
-      
-  </main>
- )
+      {visibles.map((evento) => (
+        <TarjetaEvento key={evento.id} evento={evento} />
+      ))}
+    </main>
+  )
 }
 
 export default App

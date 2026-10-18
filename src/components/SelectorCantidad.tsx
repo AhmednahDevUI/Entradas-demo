@@ -16,8 +16,8 @@ function SelectorCantidad({ precio }: Props) {
             <p>Total: {cantidad * precio} €</p>
         </div>
 
-        
     )
 }
+
 
 export default SelectorCantidad
