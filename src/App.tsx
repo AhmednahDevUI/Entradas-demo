@@ -2,6 +2,7 @@ import TarjetaEvento from './components/TarjetaEvento'
 import Cabecera from './components/Cabecera'
 import { eventos } from './data/eventos'
 
+
 function App() {
  return (
 
@@ -29,6 +30,8 @@ function App() {
           lugar={evento.lugar}
         />
       ))  }
+
+      
   </main>
  )
 }
