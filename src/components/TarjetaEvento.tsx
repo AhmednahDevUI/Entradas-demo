@@ -1,9 +1,17 @@
-function TarjetaEvento() {
+type TarjetaEventoProps = {
+    titulo: string
+    fecha: string
+    precio: number
+    lugar: string
+}
+
+function TarjetaEvento({ titulo, fecha, precio, lugar }: TarjetaEventoProps) {
     return (
         <article>
-            <h2>Concierto de verano</h2>
-            <p>Sábado 20 de junio · Plaza Mayor</p>
-            <p>Precio: 15 €</p>
+            <h2>{titulo}</h2>
+            <p>{fecha}</p>
+            <p>Precio: {precio} €</p>
+            <p>Lugar: {lugar}</p>
         </article>
     )
 }

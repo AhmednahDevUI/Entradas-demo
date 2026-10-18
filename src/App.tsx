@@ -1,5 +1,6 @@
 import TarjetaEvento from './components/TarjetaEvento'
 import Cabecera from './components/Cabecera'
+import { eventos } from './data/eventos'
 
 function App() {
  return (
@@ -16,9 +17,18 @@ function App() {
       <li>Validar acceso</li>
     </ul>
 
-      <TarjetaEvento />
-      <TarjetaEvento />
+      <TarjetaEvento titulo="Concierto de verano" fecha="20 de junio" precio={15} lugar="Plaza Mayor" />
+      
 
+      {eventos.map((evento) => (
+        <TarjetaEvento
+          key={evento.id}
+          titulo={evento.titulo}
+          fecha={evento.fecha}
+          precio={evento.precio}
+          lugar={evento.lugar}
+        />
+      ))  }
   </main>
  )
 }
