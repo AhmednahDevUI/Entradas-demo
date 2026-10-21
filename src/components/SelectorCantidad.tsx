@@ -8,7 +8,7 @@ function SelectorCantidad({ precio }: Props) {
     const [cantidad, setCantidad] = useState(1)
 
     return (
-        <div>
+        <div className="selector-cantidad">
             <button disabled={cantidad <= 1} onClick={() => setCantidad(cantidad - 1)}>-</button>
             <span>{cantidad}</span>
             <button disabled={cantidad >= 10} onClick={() => setCantidad(cantidad + 1)}>+</button>

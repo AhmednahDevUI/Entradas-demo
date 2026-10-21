@@ -1,30 +1,20 @@
-import { useState } from 'react'
-import { eventos } from './data/eventos'
-import TarjetaEvento from './components/TarjetaEvento'
+import { Route, Routes } from 'react-router'
 import Cabecera from './components/Cabecera'
+import Inicio from './pages/Inicio'
+import Eventos from './pages/Eventos'
+import EventoDetalle from './pages/EventoDetalle'
+import NoEncontrada from './pages/NoEncontrada'
 
 function App() {
-  const [busqueda, setBusqueda] = useState('')
-
-  const visibles = eventos.filter((e) =>
-    e.titulo.toLowerCase().includes(busqueda.toLowerCase())
-  )
-
   return (
-    <main>
+    <main className= "contenedor">
       <Cabecera />
-
-      <input
-        value={busqueda}
-        onChange={(e) => setBusqueda(e.target.value)}
-        placeholder="Buscar evento"
-      />
-
-      {visibles.length === 0 && <p>No hay eventos con ese nombre.</p>}
-
-      {visibles.map((evento) => (
-        <TarjetaEvento key={evento.id} evento={evento} />
-      ))}
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/eventos" element={<Eventos />} />
+        <Route path="/eventos/:id" element={<EventoDetalle />} />
+        <Route path="*" element={<NoEncontrada />} />
+      </Routes>
     </main>
   )
 }

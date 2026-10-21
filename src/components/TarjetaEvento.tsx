@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import type { Evento } from '../data/eventos'
 import SelectorCantidad from './SelectorCantidad'
 
@@ -7,8 +8,10 @@ type Props = {
 
 function TarjetaEvento({ evento }: Props) {
   return (
-    <article>
-      <h2>{evento.titulo}</h2>
+    <article className="tarjeta">
+      <h2>
+        <Link to={`/eventos/${evento.id}`}>{evento.titulo}</Link>
+      </h2>
       <p>{evento.fecha}</p>
       <p>{evento.lugar}</p>
       <p>Precio: {evento.precio} €</p>
